@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c">
+    <title>Tornado Sandbox — Loading</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="loading-screen" aria-live="polite">
+        <div class="background" aria-hidden="true"></div>
+        <div class="scene-treatment" aria-hidden="true"></div>
+
+        <header class="server-summary hud-panel">
+            <div class="server-mark" aria-hidden="true">
+                <span>TS</span>
+            </div>
+
+            <div class="server-copy">
+                <p class="eyebrow"><span class="live-dot"></span>SANDBOX SESSION</p>
+                <h1 id="server-name">Tornado Sandbox</h1>
+                <p id="server-tagline">Build freely. Face the storm. See what takes flight.</p>
+            </div>
+        </header>
+
+        <aside class="server-details hud-panel" aria-label="Server details">
+            <div class="detail">
+                <span class="detail-icon map-icon" aria-hidden="true"></span>
+                <div>
+                    <span class="detail-label">MAP</span>
+                    <strong id="map-name">Loading…</strong>
+                </div>
+            </div>
+
+            <div class="detail">
+                <span class="detail-icon mode-icon" aria-hidden="true"></span>
+                <div>
+                    <span class="detail-label">GAMEMODE</span>
+                    <strong id="gamemode-name">Sandbox</strong>
+                </div>
+            </div>
+
+            <div class="detail">
+                <span class="detail-icon players-icon" aria-hidden="true"></span>
+                <div>
+                    <span class="detail-label">SLOTS</span>
+                    <strong id="max-players">—</strong>
+                </div>
+            </div>
+        </aside>
+
+        <section class="loading-panel hud-panel">
+            <div class="loading-panel__top">
+                <div class="status-copy">
+                    <div class="status-icon" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="status-text">
+                        <p class="status-label">JOINING SERVER</p>
+                        <h2 id="loading-status">Connecting to Tornado Sandbox…</h2>
+                    </div>
+                </div>
+
+                <div class="percentage" id="loading-percentage">—</div>
+            </div>
+
+            <div
+                class="progress-track"
+                id="progress-track"
+                role="progressbar"
+                aria-label="Loading progress"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+            >
+                <div class="progress-fill" id="progress-fill"></div>
+                <div class="progress-glow" aria-hidden="true"></div>
+            </div>
+
+            <div class="current-file-row">
+                <span class="file-pulse" aria-hidden="true"></span>
+                <p class="current-file" id="current-file">Preparing connection…</p>
+            </div>
+        </section>
+
+        <aside class="tip-card hud-panel">
+            <div class="tip-icon" aria-hidden="true">i</div>
+            <div class="tip-copy">
+                <p class="tip-label">SERVER TIP</p>
+                <p class="tip"><span id="tip-text">Save important dupes before the next storm rolls in.</span></p>
+            </div>
+        </aside>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="loading.js"></script>
+</body>
+</html>
