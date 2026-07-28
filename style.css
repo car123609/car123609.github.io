@@ -39,32 +39,46 @@ body {
 body {
     color: var(--hud-text);
     font-family: "Geologica", "Segoe UI", Arial, sans-serif;
+    background:
+        var(--hud-bg-solid)
+        url("assets/tornado-sandbox-background.png?v=2")
+        center center / cover
+        no-repeat
+        fixed;
     text-rendering: geometricPrecision;
 }
 
 .loading-screen {
     position: relative;
+    z-index: 0;
     width: 100%;
     height: 100%;
-    isolation: isolate;
+    overflow: hidden;
 }
 
 .background {
     position: fixed;
-    inset: 0;
-    z-index: -3;
-    background-image: url("assets/tornado-sandbox-background.png");
+    z-index: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url("assets/tornado-sandbox-background.png?v=2");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     transform: scale(1.008);
     animation: background-settle 12s ease-out both;
+    pointer-events: none;
 }
 
 .scene-treatment {
     position: absolute;
-    inset: 0;
-    z-index: -2;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background:
         radial-gradient(
             circle at 50% 43%,
@@ -83,6 +97,7 @@ body {
 }
 
 .hud-panel {
+    z-index: 2;
     overflow: hidden;
     border: 1px solid var(--hud-border);
     border-radius: var(--panel-radius);
