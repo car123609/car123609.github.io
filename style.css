@@ -36,18 +36,15 @@ body {
 }
 
 .background {
-    position: absolute;
+    position: fixed;
     inset: 0;
+    width: 100vw;
+    height: 100vh;
     z-index: -3;
-
     background-image: url("assets/tropical-sandbox-background.png");
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
-    background-size: contain;
-    background-color: #071b2b;
-
-    transform: none;
-    animation: none;
+    background-size: cover;
 }
 
 .vignette {
@@ -55,8 +52,21 @@ body {
     inset: 0;
     z-index: -2;
     background:
-        linear-gradient(180deg, rgba(0, 16, 28, 0.52) 0%, transparent 23%, transparent 58%, rgba(1, 12, 18, 0.55) 77%, rgba(1, 8, 12, 0.92) 100%),
-        linear-gradient(90deg, rgba(1, 15, 23, 0.62) 0%, transparent 35%, transparent 73%, rgba(1, 13, 20, 0.42) 100%);
+        linear-gradient(
+            180deg,
+            rgba(0, 16, 28, 0.52) 0%,
+            transparent 23%,
+            transparent 58%,
+            rgba(1, 12, 18, 0.55) 77%,
+            rgba(1, 8, 12, 0.92) 100%
+        ),
+        linear-gradient(
+            90deg,
+            rgba(1, 15, 23, 0.62) 0%,
+            transparent 35%,
+            transparent 73%,
+            rgba(1, 13, 20, 0.42) 100%
+        );
     pointer-events: none;
 }
 
@@ -80,9 +90,19 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.28);
     border-radius: 22%;
     background:
-        radial-gradient(circle at 35% 24%, rgba(255, 255, 255, 0.3), transparent 32%),
-        linear-gradient(145deg, rgba(37, 201, 242, 0.92), rgba(5, 121, 207, 0.92));
-    box-shadow: 0 14px 40px rgba(0, 87, 145, 0.36), inset 0 1px rgba(255, 255, 255, 0.35);
+        radial-gradient(
+            circle at 35% 24%,
+            rgba(255, 255, 255, 0.3),
+            transparent 32%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(37, 201, 242, 0.92),
+            rgba(5, 121, 207, 0.92)
+        );
+    box-shadow:
+        0 14px 40px rgba(0, 87, 145, 0.36),
+        inset 0 1px rgba(255, 255, 255, 0.35);
     transform: rotate(-3deg);
 }
 
@@ -138,7 +158,9 @@ body {
 
 .detail {
     min-width: clamp(105px, 9.7vw, 168px);
-    padding: clamp(11px, 1.1vw, 18px) clamp(12px, 1.4vw, 22px);
+    padding:
+        clamp(11px, 1.1vw, 18px)
+        clamp(12px, 1.4vw, 22px);
     background: rgba(255, 255, 255, 0.035);
 }
 
@@ -163,14 +185,23 @@ body {
     right: clamp(22px, 4vw, 72px);
     bottom: clamp(20px, 3.5vh, 52px);
     left: clamp(22px, 4vw, 72px);
-    padding: clamp(18px, 1.7vw, 30px) clamp(20px, 2.2vw, 40px) clamp(16px, 1.5vw, 26px);
+    padding:
+        clamp(18px, 1.7vw, 30px)
+        clamp(20px, 2.2vw, 40px)
+        clamp(16px, 1.5vw, 26px);
     overflow: hidden;
     border: 1px solid var(--panel-border);
     border-radius: clamp(18px, 1.4vw, 26px);
     background:
-        radial-gradient(circle at 12% 0%, rgba(37, 201, 242, 0.13), transparent 29%),
+        radial-gradient(
+            circle at 12% 0%,
+            rgba(37, 201, 242, 0.13),
+            transparent 29%
+        ),
         var(--panel-bg);
-    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.55), inset 0 1px rgba(255, 255, 255, 0.07);
+    box-shadow:
+        0 22px 60px rgba(0, 0, 0, 0.55),
+        inset 0 1px rgba(255, 255, 255, 0.07);
 }
 
 .loading-panel::after {
@@ -210,7 +241,11 @@ body {
     flex: 0 0 auto;
     border: 1px solid rgba(37, 201, 242, 0.38);
     border-radius: 15px;
-    background: linear-gradient(155deg, rgba(37, 201, 242, 0.2), rgba(5, 121, 207, 0.06));
+    background: linear-gradient(
+        155deg,
+        rgba(37, 201, 242, 0.2),
+        rgba(5, 121, 207, 0.06)
+    );
 }
 
 .status-icon span {
@@ -273,7 +308,12 @@ body {
 .progress-fill::after {
     position: absolute;
     inset: 0;
-    background: linear-gradient(110deg, transparent 12%, rgba(255, 255, 255, 0.4) 46%, transparent 78%);
+    background: linear-gradient(
+        110deg,
+        transparent 12%,
+        rgba(255, 255, 255, 0.4) 46%,
+        transparent 78%
+    );
     transform: translateX(-120%);
     animation: progress-shine 2.2s ease-in-out infinite;
     content: "";
@@ -338,25 +378,43 @@ body {
     opacity: 1;
 }
 
-@keyframes background-drift {
-    from { transform: scale(1.025) translate3d(-0.3%, -0.2%, 0); }
-    to { transform: scale(1.055) translate3d(0.45%, 0.2%, 0); }
-}
-
 @keyframes equalise {
-    0%, 100% { height: 9px; opacity: 0.6; }
-    50% { height: 25px; opacity: 1; }
+    0%,
+    100% {
+        height: 9px;
+        opacity: 0.6;
+    }
+
+    50% {
+        height: 25px;
+        opacity: 1;
+    }
 }
 
 @keyframes progress-shine {
-    0%, 24% { transform: translateX(-120%); }
-    70%, 100% { transform: translateX(120%); }
+    0%,
+    24% {
+        transform: translateX(-120%);
+    }
+
+    70%,
+    100% {
+        transform: translateX(120%);
+    }
 }
 
 @keyframes indeterminate {
-    0% { left: -28%; }
-    50% { left: 52%; }
-    100% { left: 108%; }
+    0% {
+        left: -28%;
+    }
+
+    50% {
+        left: 52%;
+    }
+
+    100% {
+        left: 108%;
+    }
 }
 
 @media (max-width: 900px), (max-height: 620px) {
