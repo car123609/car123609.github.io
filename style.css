@@ -37,13 +37,17 @@ body {
 
 .background {
     position: absolute;
-    inset: -2.5%;
+    inset: 0;
     z-index: -3;
+
     background-image: url("assets/tropical-sandbox-background.png");
-    background-position: center center;
-    background-size: cover;
-    transform: scale(1.025);
-    animation: background-drift 24s ease-in-out infinite alternate;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #071b2b;
+
+    transform: none;
+    animation: none;
 }
 
 .vignette {
